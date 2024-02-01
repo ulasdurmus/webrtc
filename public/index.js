@@ -5,7 +5,7 @@ window.onload = () => {
 }
 
 async function init() {
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: true });
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
     //const stream = await navigator.mediaDevices.getUserMedia({
     //    video: true,
     //    audio: {
