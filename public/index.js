@@ -3,9 +3,9 @@ window.onload = () => {
         init();
     }
 }
-
+const stream = null;
 async function init() {
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+    stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
     //const stream = await navigator.mediaDevices.getUserMedia({
     //    video: true,
     //    audio: {
@@ -61,4 +61,15 @@ async function handleNegotiationNeededEvent(peer) {
     peer.setRemoteDescription(desc).catch(e => console.log(e));
 }
 
-
+//function toogleMute() {
+//    for (let index in stream.getAudioTracks()) {
+//        stream.getAudioTracks()[index].enabled = !stream.getAudioTracks()[index].enabled;
+//        muteButton.innerText = stream.getAudioTracks()[index].enabled ? "Unmuted" : "Muted";
+//    }
+//}
+//function toogleVid() {
+//    for (let index in stream.getVideoTracks()) {
+//        stream.getVideoTracks()[index].enabled = !stream.getVideoTracks()[index].enabled;
+//        videoButton.innerText = stream.getVideoTracks()[index].enabled ? "Video Enabled" : "Video Disabled";
+//    }
+//}

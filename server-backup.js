@@ -1,15 +1,7 @@
 const express = require('express');
 const app = express();
-const fs = require('fs');
-const http = require('http');
-const https = require('https');
 const bodyParser = require('body-parser');
 const webrtc = require("wrtc");
-
-//app.get("/", function (req, res) {
-//    res.send('HTTPS Server Response');
-//    //res.redirect("https://" + req.headers.host + req.path);
-//});
 
 const port = process.env.PORT || 3000;
 
@@ -63,17 +55,8 @@ function handleTrackEvent(e, peer) {
     senderStream = e.streams[0];
 };
 
-const optionSSL = {
-    key: fs.readFileSync("./ssl/key.pem"),
-    cert: fs.readFileSync("./ssl/cert.pem")
-};
-http.createServer(app).listen(port, function () {
-    console.log("Express Http server listenin on port 3000");
-})
-https.createServer(optionSSL, app).listen(3001, function () {
-    console.log("Express HTTP server listening on port 3001");
+
+//app.listen(5001, () => console.log('server started'));
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });
-////app.listen(5001, () => console.log('server started'));
-//app.listen(port, () => {
-//    console.log(`Server is running on port ${port}`);
-//});
